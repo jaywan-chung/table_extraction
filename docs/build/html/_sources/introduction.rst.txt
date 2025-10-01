@@ -1,0 +1,8 @@
+Introduction
+============
+
+This package extracts several tables from a large table (a pandas DataFrame).
+The main application is extracting several tables from a excel file.
+
+.. toctree::
+   :maxdepth: 4

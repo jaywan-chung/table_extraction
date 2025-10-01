@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>excel_table_conversion module &mdash; table_extraction 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Applications" href="modules_app.html" />
+    <link rel="prev" title="table_extraction module" href="table_extraction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            table_extraction
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules_core.html">Core modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="table_extraction.html">table_extraction module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">excel_table_conversion module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules_app.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules_util.html">Utility modules</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">table_extraction</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules_core.html">Core modules</a></li>
+      <li class="breadcrumb-item active">excel_table_conversion module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/excel_table_conversion.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-excel_table_conversion">
+<span id="excel-table-conversion-module"></span><h1>excel_table_conversion module<a class="headerlink" href="#module-excel_table_conversion" title="Permalink to this heading"></a></h1>
+<p>This module provides <a class="reference internal" href="#excel_table_conversion.ExcelTableConverter" title="excel_table_conversion.ExcelTableConverter"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExcelTableConverter</span></code></a> class to extract tables from Excel files.
+To define the shape of tables in Excel files, <a class="reference internal" href="#excel_table_conversion.ExcelTableFormat" title="excel_table_conversion.ExcelTableFormat"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExcelTableFormat</span></code></a> class is used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">copyright<span class="colon">:</span></dt>
+<dd class="field-odd"><p>© 2025 by Jaywan Chung</p>
+</dd>
+<dt class="field-even">license<span class="colon">:</span></dt>
+<dd class="field-even"><p>MIT</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="excel_table_conversion.ExcelTableConverter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">excel_table_conversion.</span></span><span class="sig-name descname"><span class="pre">ExcelTableConverter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_format</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_table</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#excel_table_conversion.ExcelTableConverter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Provides features for extracting tables from Excel files.</p>
+<p><strong>Note</strong>: To read an Excel file, <a class="reference external" href="https://pandas.pydata.org/pandas-docs/version/1.1.3/reference/api/pandas.read_excel.html">pandas.read_excel()</a> is used.
+Hence, a supported engine (<cite>xlrd</cite>, <cite>openpyxl</cite>, etc.) is required.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table_format</strong> (<a class="reference internal" href="#excel_table_conversion.ExcelTableFormat" title="excel_table_conversion.ExcelTableFormat"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExcelTableFormat</span></code></a>) – A format for describing a valid table in Excel files.
+Only tables that meet this format will be extracted.</p></li>
+<li><p><strong>logger</strong> (<a class="reference internal" href="logger.html#logger.Logger" title="logger.Logger"><code class="xref py py-class docutils literal notranslate"><span class="pre">logger.Logger</span></code></a>) – A logger for storing messages from converter.</p></li>
+<li><p><strong>transform_table</strong> (<em>Callabe</em><em>, </em><em>optional</em>) – A callback function for transforming extracted tables.
+Default is <cite>None</cite>, which means doing nothing by calling <a class="reference internal" href="#excel_table_conversion.identity_transform" title="excel_table_conversion.identity_transform"><code class="xref py py-func docutils literal notranslate"><span class="pre">identity_transform()</span></code></a> function.
+For an example callback function, refer to the source code of <a class="reference internal" href="#excel_table_conversion.add_longname_and_shortname" title="excel_table_conversion.add_longname_and_shortname"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_longname_and_shortname()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Variables<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>table_format</strong> (<a class="reference internal" href="#excel_table_conversion.ExcelTableFormat" title="excel_table_conversion.ExcelTableFormat"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExcelTableFormat</span></code></a>) – The format describing a valid table in Excel files.</p></li>
+<li><p><strong>logger</strong> (<a class="reference internal" href="logger.html#logger.Logger" title="logger.Logger"><code class="xref py py-class docutils literal notranslate"><span class="pre">logger.Logger</span></code></a>) – The logger storing messages from converter.</p></li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dt>Example callback function: The following function does no transform.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">identity_transform</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">table_range</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">table</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="excel_table_conversion.ExcelTableConverter.convert_all_to_csv">
+<span class="sig-name descname"><span class="pre">convert_all_to_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_rootdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_rootdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_converted</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backup_excel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tail_in_csv_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#excel_table_conversion.ExcelTableConverter.convert_all_to_csv" title="Permalink to this definition"></a></dt>
+<dd><p>Extract tables from Excel files and save as CSV files.
+All Excel files in root directory and subdirectories are converted.
+Tables in a single Excel file are merged and saved as a corresponding, single CSV file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source_rootdir</strong> (<em>str</em>) – Root directory containing Excel files to be converted.</p></li>
+<li><p><strong>target_rootdir</strong> (<em>str</em>) – Target root directory that will contain converted CSV files.</p></li>
+<li><p><strong>skip_converted</strong> (<em>bool</em><em>, </em><em>optional</em>) – If <cite>True</cite>, skip converting Excel file if it is already converted; that is,
+a converted CSV file exists, and its last modification date is later than
+the last modification date of the Excel file.
+Default is <cite>False</cite>.</p></li>
+<li><p><strong>backup_excel</strong> (<em>bool</em><em>, </em><em>optional</em>) – If <cite>True</cite>, the original Excel file is copied into the target directory.
+Default is <cite>False</cite>.
+<strong>Note</strong>: If CSV conversion has been skipped, then <strong>backup is also skipped</strong> regardless of this option.</p></li>
+<li><p><strong>tail_in_csv_filename</strong> (<em>str</em><em>, </em><em>optional</em>) – A tail name to be attached in the original name.
+For example, if tail name is ‘_converted’, then <cite>excel.xlsx</cite> file is converted to <cite>excel_converted.csv</cite> file.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="excel_table_conversion.ExcelTableConverter.convert_to_csv">
+<span class="sig-name descname"><span class="pre">convert_to_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_excel_filepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_csv_filepath</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#excel_table_conversion.ExcelTableConverter.convert_to_csv" title="Permalink to this definition"></a></dt>
+<dd><p>Extract tables from source Excel file and save as the target CSV file.
+All tables in the Excel file are merged and saved as a single CSV file.
+Target directory will be created if missing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source_excel_filepath</strong> (<em>str</em>) – Excel filepath to be extracted.</p></li>
+<li><p><strong>target_csv_filepath</strong> (<em>str</em>) – Target CSV filepath.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="excel_table_conversion.ExcelTableConverter.extract_table_from_excel_file">
+<span class="sig-name descname"><span class="pre">extract_table_from_excel_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">excel_filepath</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.DataFrame</span></span></span><a class="headerlink" href="#excel_table_conversion.ExcelTableConverter.extract_table_from_excel_file" title="Permalink to this definition"></a></dt>
+<dd><p>Extract all tables from an Excel file and merge into a single pandas DataFrame.</p>
+<p><strong>Note</strong>: To read an Excel file, <a class="reference external" href="https://pandas.pydata.org/pandas-docs/version/1.1.3/reference/api/pandas.read_excel.html">pandas.read_excel()</a> is used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>excel_filepath</strong> (<em>str</em>) – An Excel filepath.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A merged table.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="excel_table_conversion.ExcelTableConverter.extract_table_from_sheet">
+<span class="sig-name descname"><span class="pre">extract_table_from_sheet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sheets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sheet_name</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.DataFrame</span></span></span><a class="headerlink" href="#excel_table_conversion.ExcelTableConverter.extract_table_from_sheet" title="Permalink to this definition"></a></dt>
+<dd><p>Extract all tables from a target sheet (of an Excel file) and merge into a single pandas DataFrame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sheets</strong> (<em>dict</em>) – All sheets (of an Excel file).
+This is a dictionary where the keys are sheet names and the items are pandas DataFrames.</p></li>
+<li><p><strong>sheet_name</strong> (<em>str</em>) – The name of the target sheet.
+Of all sheets, only the sheet named <cite>sheet_name</cite> is processed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A merged table.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="excel_table_conversion.ExcelTableFormat">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">excel_table_conversion.</span></span><span class="sig-name descname"><span class="pre">ExcelTableFormat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_n_rows</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_n_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header_row_offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header_in_sheet_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header_in_filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#excel_table_conversion.ExcelTableFormat" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a valid shape of a table and check the validity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_n_rows</strong> (<em>int</em>) – The minimum number of rows where a table must have.</p></li>
+<li><p><strong>min_n_cols</strong> (<em>int</em>) – The minimum number of columns where a table must have.</p></li>
+<li><p><strong>header_row_offset</strong> (<em>int</em><em>, </em><em>optional</em>) – The row offset of the header of a table.
+Default is 0, which means the first row of the table is header.</p></li>
+<li><p><strong>header_in_sheet_name</strong> (<em>str</em><em>, </em><em>optional</em>) – A sheet name must start with <cite>header_in_sheet_name</cite>. If not, the sheet is skipped.
+Default is ‘’.</p></li>
+<li><p><strong>header_in_filename</strong> (<em>str</em><em>, </em><em>optional</em>) – An Excel filename must start with <cite>header_in_filename</cite>. If not, the file is skipped.
+Default is ‘’.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="excel_table_conversion.ExcelTableFormat.acceptable_csv_filename">
+<span class="sig-name descname"><span class="pre">acceptable_csv_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#excel_table_conversion.ExcelTableFormat.acceptable_csv_filename" title="Permalink to this definition"></a></dt>
+<dd><p>Check to see if the filename is a valid CSV filename.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – The name of a CSV file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><cite>True</cite> if <cite>filename</cite> starts with <a class="reference internal" href="#excel_table_conversion.ExcelTableFormat.header_in_filename" title="excel_table_conversion.ExcelTableFormat.header_in_filename"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ExcelTableFormat.header_in_filename</span></code></a> and ends with <cite>.csv</cite>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="excel_table_conversion.ExcelTableFormat.acceptable_excel_filename">
+<span class="sig-name descname"><span class="pre">acceptable_excel_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#excel_table_conversion.ExcelTableFormat.acceptable_excel_filename" title="Permalink to this definition"></a></dt>
+<dd><p>Check to see if the filename is a valid Excel filename.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – The name of an Excel file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><cite>True</cite> if <cite>filename</cite> starts with <a class="reference internal" href="#excel_table_conversion.ExcelTableFormat.header_in_filename" title="excel_table_conversion.ExcelTableFormat.header_in_filename"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ExcelTableFormat.header_in_filename</span></code></a> and ends with <cite>.xlsx</cite>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="excel_table_conversion.ExcelTableFormat.acceptable_sheet_name">
+<span class="sig-name descname"><span class="pre">acceptable_sheet_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sheet_name</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#excel_table_conversion.ExcelTableFormat.acceptable_sheet_name" title="Permalink to this definition"></a></dt>
+<dd><p>Check to see if the sheet name is valid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sheet_name</strong> (<em>str</em>) – The name of a sheet.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><cite>True</cite> if <cite>sheet_name</cite> starts with <a class="reference internal" href="#excel_table_conversion.ExcelTableFormat.header_in_sheet_name" title="excel_table_conversion.ExcelTableFormat.header_in_sheet_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ExcelTableFormat.header_in_sheet_name</span></code></a>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="excel_table_conversion.ExcelTableFormat.header_in_filename">
+<span class="sig-name descname"><span class="pre">header_in_filename</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#excel_table_conversion.ExcelTableFormat.header_in_filename" title="Permalink to this definition"></a></dt>
+<dd><p>An Excel filename must start with <cite>header_in_filename</cite>. If not, the file is skipped. Default is ‘’.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="excel_table_conversion.ExcelTableFormat.header_in_sheet_name">
+<span class="sig-name descname"><span class="pre">header_in_sheet_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#excel_table_conversion.ExcelTableFormat.header_in_sheet_name" title="Permalink to this definition"></a></dt>
+<dd><p>A sheet name must start with <cite>header_in_sheet_name</cite>. If not, the sheet is skipped. Default is ‘’.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="excel_table_conversion.ExcelTableFormat.header_row_offset">
+<span class="sig-name descname"><span class="pre">header_row_offset</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#excel_table_conversion.ExcelTableFormat.header_row_offset" title="Permalink to this definition"></a></dt>
+<dd><p>The row offset of the header of a table. Default is 0, which means the first row of the table is header.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="excel_table_conversion.ExcelTableFormat.min_n_cols">
+<span class="sig-name descname"><span class="pre">min_n_cols</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#excel_table_conversion.ExcelTableFormat.min_n_cols" title="Permalink to this definition"></a></dt>
+<dd><p>The minimum number of columns where a table must have.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="excel_table_conversion.ExcelTableFormat.min_n_rows">
+<span class="sig-name descname"><span class="pre">min_n_rows</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#excel_table_conversion.ExcelTableFormat.min_n_rows" title="Permalink to this definition"></a></dt>
+<dd><p>The minimum number of rows where a table must have.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="excel_table_conversion.add_longname_and_shortname">
+<span class="sig-prename descclassname"><span class="pre">excel_table_conversion.</span></span><span class="sig-name descname"><span class="pre">add_longname_and_shortname</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table_range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#excel_table_conversion.add_longname_and_shortname" title="Permalink to this definition"></a></dt>
+<dd><p>A callback function for adding longname and shortname columns to table.
+Can be used as an input for <cite>transform_table</cite> parameter of <a class="reference internal" href="#excel_table_conversion.ExcelTableConverter" title="excel_table_conversion.ExcelTableConverter"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExcelTableConverter</span></code></a> class.</p>
+<p>The longname and shortname appear in the first column, before the first row of the table.
+That is, the row offsets of longname and shortname are -2 and -1, respectively.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – The entire dataframe containing the table.</p></li>
+<li><p><strong>table_range</strong> (<a class="reference internal" href="table_extraction.html#table_extraction.TableRange" title="table_extraction.TableRange"><code class="xref py py-class docutils literal notranslate"><span class="pre">table_extraction.TableRange</span></code></a>) – The range of extracted table in <cite>df</cite>.</p></li>
+<li><p><strong>table</strong> (<em>pandas.DataFrame</em>) – The extracted table.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The table transformed by adding longname and shortname columns.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="excel_table_conversion.identity_transform">
+<span class="sig-prename descclassname"><span class="pre">excel_table_conversion.</span></span><span class="sig-name descname"><span class="pre">identity_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table_range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#excel_table_conversion.identity_transform" title="Permalink to this definition"></a></dt>
+<dd><p>A callback function for transforming extracted tables. This function does nothing.</p>
+<p><strong>Note</strong>: To create a custom callback function, match the parameters and the return type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – The entire dataframe containing the table.</p></li>
+<li><p><strong>table_range</strong> (<a class="reference internal" href="table_extraction.html#table_extraction.TableRange" title="table_extraction.TableRange"><code class="xref py py-class docutils literal notranslate"><span class="pre">table_extraction.TableRange</span></code></a>) – The range of the extracted table in <cite>df</cite>.</p></li>
+<li><p><strong>table</strong> (<em>pandas.DataFrame</em>) – The extracted table.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Transformed table. This is equal to the input parameter <cite>table</cite>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="table_extraction.html" class="btn btn-neutral float-left" title="table_extraction module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modules_app.html" class="btn btn-neutral float-right" title="Applications" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Jaywan Chung.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
