@@ -6,7 +6,7 @@
 Welcome to table_extraction's documentation!
 =================================================
 
-This package can extract several tables from a large table (a pandas DataFrame).
+This is a **Python** package that can extract several tables from a large table (a pandas DataFrame).
 
 The main application is extracting several tables from an Excel file,
 which is useful because many tables are often located in a single tab for convenience.
@@ -16,6 +16,9 @@ For extracting tables:
 * from a pandas DataFrame: use :py:func:`table_extraction.find_all_table_range`.
 * from a Excel file: use :py:class:`excel_table_conversion.ExcelTableConverter`.
   For an example usage, refer to the source code of :py:mod:`convert` module (`convert.py`).
+
+Requirements:
+Python>=3.7; numpy>=1.18; pandas>=1.1.3; colorama>=0.4.6
 
 .. toctree::
    :maxdepth: 3
@@ -27,6 +30,7 @@ For extracting tables:
 
 Document version:
 |release|
+
 
 Indices and tables
 ==================
